@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-US" demote-non-dropping-particle="sort-only">
+  <info>
+    <title>Procedia Computer Science — 3a Embellished Vancouver (Template-based Custom)</title>
+    <title-short>Procedia Computer Science (custom)</title-short>
+    <id>http://www.zotero.org/styles/procedia-computer-science-3a-embellished-vancouver-custom</id>
+    <link href="http://www.zotero.org/styles/procedia-computer-science-3a-embellished-vancouver-custom" rel="self"/>
+    <category citation-format="numeric"/>
+    <category field="science"/>
+    <summary>Custom numbered reference style based on the examples in the 2026 Procedia Computer Science conference Word template. Not an official Elsevier CSL.</summary>
+    <updated>2026-10-30T00:00:00+00:00</updated>
+  </info>
+  <macro name="authors">
+    <names variable="author">
+      <name name-as-sort-order="first" sort-separator=", " initialize-with=". " delimiter=", " and="text" delimiter-precedes-last="never"/>
+      <substitute><names variable="editor"/><text variable="title"/></substitute>
+    </names>
+  </macro>
+  <macro name="year">
+    <date variable="issued"><date-part name="year"/></date>
+  </macro>
+  <macro name="title">
+    <text variable="title" quotes="true"/>
+  </macro>
+  <macro name="journal-details">
+    <group delimiter=" ">
+      <text variable="container-title" font-style="italic"/>
+      <group delimiter=" ">
+        <text variable="volume"/>
+        <group prefix="(" suffix=")"><text variable="issue"/></group>
+      </group>
+    </group>
+    <text variable="page" prefix=": "/>
+  </macro>
+  <citation collapse="citation-number" after-collapse-delimiter=", ">
+    <sort><key variable="citation-number"/></sort>
+    <layout delimiter=", " prefix="[" suffix="]">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+  <bibliography entry-spacing="0" second-field-align="flush">
+    <layout>
+      <text variable="citation-number" prefix="[" suffix="] "/>
+      <choose>
+        <if type="article-journal article-magazine article-newspaper" match="any">
+          <group delimiter=" ">
+            <text macro="authors" suffix="."/>
+            <text macro="year" prefix="(" suffix=")"/>
+            <text macro="title" suffix="."/>
+            <text macro="journal-details" suffix="."/>
+          </group>
+        </if>
+        <else-if type="paper-conference chapter" match="any">
+          <group delimiter=" ">
+            <text macro="authors" suffix="."/>
+            <text macro="year" prefix="(" suffix=")"/>
+            <text macro="title" suffix="."/>
+            <text variable="container-title" font-style="italic" suffix="."/>
+            <text variable="publisher-place" suffix=":"/>
+            <text variable="publisher" suffix="."/>
+            <text variable="page" suffix="."/>
+          </group>
+        </else-if>
+        <else>
+          <group delimiter=" ">
+            <text macro="authors" suffix="."/>
+            <text macro="year" prefix="(" suffix=")"/>
+            <text macro="title" suffix="."/>
+            <text variable="publisher" suffix="."/>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
+</style>
